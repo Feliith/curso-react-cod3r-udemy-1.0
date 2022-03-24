@@ -1,6 +1,11 @@
 @font-face {
   font-family: 'Roboto';
-  src: url('fonts/Roboto-Thin.ttf');
+  src: url(fonts/Roboto-Thin.ttf);
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url(fonts/Poppins-ExtraLight.ttf);
 }
 
 * {
@@ -10,11 +15,20 @@
 }
 
 body {
-  background: #242424;
+  background: linear-gradient(to left, #2C5364, #203A43, #0F2027);
+  color: #fff;
   font-family: 'Roboto', sans-serif;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  margin-top: -20px;
+  margin-bottom: 20px;
 }
