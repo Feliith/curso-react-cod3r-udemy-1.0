@@ -2,39 +2,8 @@ import React, { useReducer, useState } from 'react'
 import PageTitle from '../../components/layout/PageTitle'
 import SectionTitle from '../../components/layout/SectionTitle'
 
-const initialState = {
-    other: '...',
-    cart: [],
-    producst: [],
-    user: null,
-    // focus
-    number: 0,
-}
-
-function reducer(state, action) {
-    switch(action.type){
-        case 'add2ToNumber':
-            return {...state, number: state.number + 2}
-
-        case 'login':
-            return {...state, user: {name: action.name}}
-
-        case 'multiply7':
-            return {...state, number: state.number * 7}
-
-        case 'divide25':
-        return {...state, number: state.number / 25}
-
-        case 'parseInt':
-            return {...state, number: parseInt(state.number)}
-
-        case 'addNum':
-            return {...state, number: state.number + action.addNum}
-
-        default:
-            return state
-    }
-}
+import { initialState, reducer } from '../../store'
+import { add2ToNumber, login } from '../../store/actions'
 
 const UseReducer = (props) => {
 
@@ -60,17 +29,19 @@ const UseReducer = (props) => {
 
                 <input type="text" 
                     className="input"
+                    placeholder='Nome'
                     value={name}
                     onChange={e => setName(e.target.value)} />
 
                 <div>
+                    
                     <button className="btn"
-                        onClick={() => dispatch({type: 'add2ToNumber'})}
-                    >+2</button>
+                        onClick={() => login(dispatch, name)}
+                    >LogIn</button>
 
                     <button className="btn"
-                        onClick={() => dispatch({type: 'login', name: name})}
-                    >LogIn</button>
+                        onClick={() => add2ToNumber(dispatch)}
+                    >+2</button>
 
                     <button className="btn"
                         onClick={() => dispatch({type: 'multiply7'})}
